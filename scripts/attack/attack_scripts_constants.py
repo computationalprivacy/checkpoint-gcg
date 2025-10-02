@@ -11,6 +11,42 @@ echo "Checkpoints: ${checkpoints[@]}"
     "gradnorm": """checkpoints=(0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  37  38  40  41  43  45  46  49  54  58  59  60  65  72  77  78  79  80  81  84  91  98 102 103 104 109 110 117 118 119 120 125 152 153 157 159 162 163 165 171 174 177 186 189 191 200 219 222 223 225 235 238 257 265 267 274 277 280 285 287 382 432 456 464 484 897)
 echo "Checkpoints: ${checkpoints[@]}"
 """,
+    "everyk10": """checkpoints1=$(seq 0 10 898)
+checkpoints2=897
+checkpoints=($checkpoints1 $checkpoints2)
+echo "Checkpoints: ${checkpoints[@]}"
+    """,
+    "everyk50": """checkpoints1=$(seq 0 50 898)
+checkpoints2=897
+checkpoints=($checkpoints1 $checkpoints2)
+echo "Checkpoints: ${checkpoints[@]}"
+    """,
+    "everyk100": """checkpoints1=$(seq 0 100 898)
+checkpoints2=897
+checkpoints=($checkpoints1 $checkpoints2)
+echo "Checkpoints: ${checkpoints[@]}"
+    """,
+    "stepq10": """checkpoints1=$(seq 0 30)
+checkpoints2=$(seq 40 10 898)
+checkpoints3=897
+checkpoints=($checkpoints1 $checkpoints2 $checkpoints3)
+echo "Checkpoints: ${checkpoints[@]}"
+    """,
+    "stepq100": """checkpoints1=$(seq 0 30)
+checkpoints2=$(seq 100 100 898)
+checkpoints3=897
+checkpoints=($checkpoints1 $checkpoints2 $checkpoints3)
+echo "Checkpoints: ${checkpoints[@]}"
+    """,
+    "gradnormt01": """checkpoints=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 30 31 32 34 37 40 46 49 59 60 65 77 91 102 103 118 119 120 152 153 159 174 177 189 191 200 219 222 267 277 280 285 432 484 897)
+echo "Checkpoints: ${checkpoints[@]}"
+""",
+    "gradnormt02": """checkpoints=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 31 40 49 60 91 102 103 118 119 189 219 222 277 432 484 897)
+echo "Checkpoints: ${checkpoints[@]}"
+""",
+    "gradnormt001": """checkpoints=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 53 54 55 57 58 59 60 62 63 64 65 66 67 68 69 70 71 72 73 74 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 94 95 97 98 99 102 103 104 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 122 124 125 127 128 129 130 131 132 133 135 136 139 140 142 144 145 147 148 149 150 151 152 153 155 157 159 162 163 164 165 168 170 171 174 175 177 182 183 184 186 187 189 191 194 200 201 203 208 209 219 220 222 223 225 229 230 231 232 233 235 236 238 239 240 241 242 243 244 245 246 247 248 251 254 257 258 259 260 262 263 265 267 274 277 280 285 287 288 295 302 317 318 320 325 334 341 351 359 365 382 387 388 394 399 405 413 427 432 451 453 455 456 464 466 476 477 480 484 486 499 501 520 522 523 537 580 585 586 625 627 688 729 760 763 775 849 869 871 893 897)
+echo "Checkpoints: ${checkpoints[@]}"
+""",
 }
 
 checkpoint_strategies2checkpoint_strings_mistral_secalign = {
@@ -24,6 +60,13 @@ echo "Checkpoints: ${checkpoints[@]}"
 echo "Checkpoints: ${checkpoints[@]}"
 """,
 }
+
+checkpoint_strategies2checkpoint_strings_qwen_secalign = {
+    "gradnorm": """checkpoints=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 50 52 54 55 71 72 74 80 83 98 101 104 105 106 121 132 135 136 143 150 163 178 186 187 190 191 206 208 223 226 238 288 313 338 369 374 458 499 517 596 801 870 897)
+echo "Checkpoints: ${checkpoints[@]}"
+""",
+}
+
 checkpoint_strategies2checkpoint_strings_llama_struq = {
     "gradnorm": """checkpoints=(0   1   2   3   4   5   6   7   8   9   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   30   31   33   35   36   41   42   43   47   50   63   96  100  104  180  197  220  281  282  287  325  379  407  437  479  593  652  695  711  727  777  842  963 1004 1017 1045 1064 1109 1152 1165 1218 1281 1377 1504 1546 1607 1662 1665 1688 1701 1705 1730 1731 1739 1739 1757 1778 1793 1830 1849 1859 1872 1887 1901 1910 1938 1953 1962 1964 1997 2000 2047 2055 2065 2084 2087 2102 2104 2117 2119 2135 2139 2153 2156 2177 2196 2209 2227 2251 2286 2299 2301 2319 2320 2356 2360 2371 2421 2424)
 echo "Checkpoints: ${checkpoints[@]}"
@@ -36,8 +79,14 @@ echo "Checkpoints: ${checkpoints[@]}"
 """
 }
 
+checkpoint_strategies2checkpoint_strings_qwen_struq = {
+    "gradnorm": """checkpoints=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 30 31 32 33 36 39 40 41 42 43 44 47 48 50 51 52 54 56 60 61 63 69 94 95 96 97 100 104 115 116 119 128 154 155 158 162 175 180 181 184 190 193 211 212 217 223 227 236 270 273 274 287 299 303 400 435 474 626 652 689 695 778 878 1017 1477 1872 2106 2209 2258 2319 2421 2424)
+echo "Checkpoints: ${checkpoints[@]}"
+""",
+}
+
 checkpoint_strategies2checkpoint_strings_safety_llama = {
-    "gradnorm": """checkpoints=(0   1   2   3   4   5   6   7   8   9   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32   33   34   35   36   37   38   39   40   41   42   43   44   45   46   47   51   53   55   66   75   77   84   85   100   118   140   145   168   197   229   235   263   265   268   270   282   300   303   308   309   322   325   330   334   335   340   345   356   359   365   366   367   370   371   382   383   385   387   389   393   395   400   401   402   410   411   419   426   436   446   448   451   453   455   459   463   464   467   471   474   482   486   494   495   498   501   502   503   505   506   513   514   516   517   518   519   524   525   526   527   528   531   532   539   541   542   543   546   548   552   554   555   558   559   562   564   568   569   573   576   577   578   579   585   587   589   592   593   594   596   598   600   603   605   606   610   611   617   619   620   621   622   627   629   630   631   632   633   636   637   639   640   641   642   645   646   649   650   652   654   656   657   659   660   661   662   663   665   666   668)
+    "gradnorm": """checkpoints=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 51 53 55 168 229 270 303 322 335 366 367 389 393 395 453 482 486 502 513 519 525 526 555 562 569 577 589 592 593 598 600 603 611 620 629 631 637 645 656 666 668)
 echo "Checkpoints: ${checkpoints[@]}"
 """
 }
@@ -47,7 +96,7 @@ hpc_header = """#PBS -l walltime=23:59:59
 
 eval "$(~/miniforge3/bin/conda shell.bash hook)"
 conda activate secalign
-cd /rds/general/user/xy2222/ephemeral/attack-secalign-fix-mistral
+cd project_dir
 """
 
 checkpoint_attack_bash_script = """
@@ -60,10 +109,10 @@ for checkpoint in "${{checkpoints[@]}}"
 do
     python test.py \\
         --model_name_or_path "{model_path}" \\
-        --device "0" \\
+        --device "{device}" \\
         --defense "{defense}" \\
         --data_path "{data_path}" \\
-        --checkpoint_dir "/checkpoint_gcg/" \\
+        --checkpoint_dir "{checkpoint_dir}" \\
         --checkpoint $checkpoint \\
         --all_checkpoints ${{checkpoints[@]}} \\
         --checkpoint_choice "{checkpoint_choice}" \\
@@ -71,7 +120,7 @@ do
         --sample_ids {sample_ids} \\
         --gcg_global_budget \\
         --gcg_early_stopping \\
-        {universal_or_individual_attack_args}
+        {universal_or_individual_attack_args} \\
         {additional_args}
 done
 """
@@ -85,20 +134,20 @@ echo "Current time: $current_time"
 
 python test.py \\
     --model_name_or_path "{model_path}" \\
-    --device "0" \\
+    --device "{device}" \\
     --defense "{defense}" \\
     --data_path "{data_path}" \\
-    --checkpoint_dir "/checkpoint_gcg/" \\
+    --checkpoint_dir "{checkpoint_dir}" \\
     --current_time $current_time \\
     --sample_ids {sample_ids} \\
     --gcg_global_budget \\
     --gcg_early_stopping \\
-    {universal_or_individual_attack_args} 
+    {universal_or_individual_attack_args} \\
     {additional_args}
 """
 
 individual_sample_attack_args = (
-    """--gcg_num_steps_per_checkpoint 1000 --gcg_num_steps_total 50000"""
+    """--gcg_num_steps_per_checkpoint {gcg_num_steps_per_checkpoint} --gcg_num_steps_total {gcg_num_steps_total}"""
 )
 
 universal_attack_args = """--gcg_num_steps_per_sample 3500 --gcg_num_steps_total 10000 --gcg_universal_attack"""

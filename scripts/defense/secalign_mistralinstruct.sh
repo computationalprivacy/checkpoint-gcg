@@ -7,7 +7,7 @@ CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.run --nproc_per_node=1 --mast
 --save_steps 1   \
 --window_size 256      \
 --padding_side left           \
---output_dir mistralai/Mistral-7B-Instruct-v0.1_dpo_NaiveCompletion_2025-04-27-15-02-43  \
+--output_dir mistralai/Mistral-7B-Instruct-v0.1_dpo_NaiveCompletion_2025  \
 --num_train_epochs 3        \
 --per_device_train_batch_size 8           \
 --gradient_accumulation_steps 8        \

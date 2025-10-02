@@ -60,6 +60,8 @@ class SuffixManager:
     valid_templates = (
         "secalign_llama-3",
         "secalign_mistral",
+        "secalign_qwen2",
+        "metasecalign",
         "safety-tuned-llama",
         "llama-3",
         "llama-2",
@@ -155,7 +157,7 @@ class SuffixManager:
                 f"of {self.valid_templates}"
             )
         self.conv_template.messages = []
-        if self.conv_template.name not in ["secalign_llama-3", "secalign_mistral"]:
+        if self.conv_template.name not in ["secalign_llama-3", "secalign_mistral", "secalign_qwen2", "metasecalign"]:
             if messages[0].content:
                 self.conv_template.set_system_message(messages[0].content)
 

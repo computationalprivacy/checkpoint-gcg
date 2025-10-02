@@ -3,7 +3,7 @@ python -m torch.distributed.run --nproc_per_node=2 --master_port=29694 train.py 
 --window_size 256 \
 --padding_side left \
 --data_path data/training/alpaca_data_cleaned.json      \
---output_dir mistralai/Mistral-7B-Instruct-v0.1_Mistral-7B-Instruct-v0.1_NaiveCompletion_2025-05-10-13-41-28      \
+--output_dir mistralai/Mistral-7B-Instruct-v0.1_Mistral-7B-Instruct-v0.1_NaiveCompletion_2025      \
 --num_train_epochs 3      \
 --per_device_train_batch_size 4    \
 --per_device_eval_batch_size 4        \

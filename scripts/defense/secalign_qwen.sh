@@ -1,5 +1,5 @@
-python -m torch.distributed.run  --nproc_per_node=1 --master_port=30425 align.py \
---model_name_or_path meta-llama/Meta-Llama-3-8B-Instruct   \
+CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.run  --nproc_per_node=1 --master_port=30425 align.py \
+--model_name_or_path Qwen/Qwen2-1.5B-Instruct   \
 --data_path data/training/alpaca_data_cleaned.json \
 --cache_dir /checkpoint_gcg/CacheDir  \
 --evaluation_strategy "no"  \
@@ -8,11 +8,11 @@ python -m torch.distributed.run  --nproc_per_node=1 --master_port=30425 align.py
 --logging_steps 1      \
 --per_device_train_batch_size 8  \
 --learning_rate 1.6e-4           \
---fsdp_transformer_layer_cls_to_wrap "LlamaDecoderLayer"   \
+--fsdp_transformer_layer_cls_to_wrap "Qwen2DecoderLayer"   \
 --fsdp "full_shard auto_wrap"    \
 --lr_scheduler_type "cosine"         \
 --gradient_accumulation_steps 8         \
---output_dir meta-llama/Meta-Llama-3-8B-Instruct_dpo__NaiveCompletion_2025   \
+--output_dir Qwen/Qwen2-1.5B-Instruct_dpo_NaiveCompletion_2025   \
 --num_train_epochs 3     \
 --attack NaiveCompletion          \
 --alignment dpo  \
